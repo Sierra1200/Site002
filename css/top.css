@@ -186,6 +186,12 @@ main .post-area .post-list .post-item a .post-info {
     transition: 0.4s;
 }
 
+@media screen and (max-width: 480px) {
+    main .post-area .post-list .post-item a .post-info {
+        display: none;
+    }
+}
+
 main .post-area .post-list .post-item a:hover .post-info {
     opacity: 1;
 }
