@@ -1,0 +1,353 @@
+@charset "utf-8";
+
+/*
+
+# 単位のメモ
+
+px      borderやboxshadowやoutline等の他要素に関わらず常にサイズが一定のもの
+%	    htmlタグでのフォントサイズの指定
+        heightやwidthなど
+rem	    margin/padding/font-sizeなど
+em	    メディアクリ
+        remと同じ用途で親要素を基準にしたい場合(頻度は少ない)
+vh,vw   全体的なレイアウトで%の代わりに使用する場合もある
+
+*/
+
+/*
+//  common
+*/
+
+html {
+    font-size: 80%;
+    overflow-y: scroll;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    font-family: Verdana, "ＭＳ Ｐゴシック", sans-serif;
+    letter-spacing: 0;
+    line-height:1.6;
+}
+
+body * {
+
+}
+
+p {
+
+}
+
+a {
+    color : inherit;
+    text-decoration: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+.pc {
+    display: block;
+}
+
+.sp {
+    display: none;
+}
+
+.cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+    visibility: hidden;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.cover.show {
+    z-index: 10;
+    visibility: visible;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
+    html {
+
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .sp {
+        display: block;
+    }
+}
+
+/*
+//  header
+*/
+
+header {
+    position: fixed;
+    background-color: #1d50a2;
+    width: 100%;
+    height: auto;
+    z-index: 20;
+    color: #fff;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 3rem;
+    /* transition: 0.3s; */
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        height: 6rem;
+    }
+}
+
+header.tag-active {
+    /* background-color: #B2291C; */
+}
+
+header .menu.pc {
+    display: block;
+}
+
+@media screen and (max-width: 480px) {
+    header .menu.pc {
+        display: none;
+    }
+}
+
+header .menu.pc .menu-list {
+    width: 100%;
+    height: auto;
+    padding: 2rem 15rem;
+    text-align: right;
+}
+
+header .menu.pc .menu-list .menu-item {
+    display: inline-block;
+    margin-left: 1rem;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+header.tag-active .menu.pc .menu-list .menu-item.tag {
+    background-color: #B2291C;
+    transition: 0.3s;
+}
+
+header .menu.pc .menu-list .menu-item a {
+    display: block;
+    padding: 0 1rem;
+}
+
+header .menu.pc .menu-list .menu-item.tag a {
+    pointer-events: none;
+}
+
+header .menu.pc .tag-area {
+    width: auto;
+    height: auto;
+    color: #fff;
+    background-color: #B2291C;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 2rem;
+}
+
+header .menu.pc .tag-area .tag-list {
+    padding: 2rem 15rem;
+    letter-spacing: -1em;
+}
+
+header .menu.pc .tag-area .tag-list .tag-item {
+    display: inline-block;
+    margin: 0.4rem;
+    border: 1px #fff solid;
+    border-radius: 5px;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+header .menu.pc .tag-area .tag-list .tag-item a {
+    display: block;
+    padding: 0.1rem 0.8rem;
+}
+
+header .menu-toggle.sp {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 2rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    color: #fff;
+    font-size: 2.6rem;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 480px) {
+    header .menu-toggle.sp {
+        display: inline-block;
+    }
+}
+
+header .menu-toggle.sp .menu-toggle-elem {
+    display: block;
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: #fff;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+header .menu-toggle.sp .menu-toggle-elem:nth-child(1) {
+	top: 0;
+}
+
+header .menu-toggle.sp .menu-toggle-elem:nth-child(2) {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+header .menu-toggle.sp .menu-toggle-elem:nth-child(3) {
+	bottom: 0;
+}
+
+header .menu-toggle.sp.show .menu-toggle-elem:nth-child(1) {
+    transform: translateY(10px) rotate(-45deg);
+}
+
+header .menu-toggle.sp.show .menu-toggle-elem:nth-child(2) {
+    opacity: 0;
+}
+
+header .menu-toggle.sp.show .menu-toggle-elem:nth-child(3) {
+    transform: translateY(-11px) rotate(45deg);
+}
+
+header .menu.sp {
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 6rem;
+    background-color: #fff;
+    color: #1d50a2;
+    font-size: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+header .menu.sp.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+header .menu.sp .menu-list .menu-item {
+    padding: 0.25rem 0;
+}
+
+header .menu.sp .menu-list .menu-item.tag {
+    transition: 0.3s;
+}
+
+header.tag-active .menu.sp .menu-list .menu-item.tag {
+    color: #fff;
+    background-color: #B2291C;
+    transition: 0.3s;
+}
+
+header .menu.sp .menu-list .menu-item a {
+    display: inline-block;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: right;
+}
+
+header .menu.sp .menu-list .menu-item.tag a {
+    pointer-events: none;
+}
+
+header .menu.sp .tag-area {
+    padding: 1rem 2rem;
+    color: #fff;
+    background-color: #B2291C;
+    font-size: 1.6rem;
+}
+
+header .menu.sp .tag-area .tag-list .tag-item {
+    display: block;
+    margin-bottom: 0.5rem;
+    border: 1px #fff solid;
+    border-radius: 5px;
+}
+
+header .menu.sp .tag-area .tag-list .tag-item:last-child {
+    margin-bottom: 0;
+}
+
+header .menu.sp .tag-area .tag-list .tag-item a {
+    display: block;
+    text-align: center;
+}
+
+/*
+//  main
+*/
+
+main {
+    position: relative;
+}
+
+main .scroll-top {
+    position: absolute;
+    right: 5rem;
+    bottom: 0;
+}
+
+@media screen and (max-width: 480px) {
+    main .scroll-top {
+        right: 2rem;
+        bottom: -5rem;
+        margin-top: 6rem;
+    }
+}
+
+main .scroll-top a i {
+    font-size: 4rem;
+}
+
+/*
+// footer
+*/
+
+footer {
+    margin-top: 3rem;
+    padding: 2rem 15rem;
+    border-top: #888 1px solid;
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        margin-top: 6rem;
+        padding: 2rem;
+    }
+}
+
+footer .copyright p {
+    text-align: center;
+}

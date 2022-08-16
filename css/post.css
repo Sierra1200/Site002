@@ -1,0 +1,173 @@
+@charset "utf-8";
+
+/*
+//  post
+*/
+
+main {
+    width: auto;
+    min-height: 900px;
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        width: 90%;
+        min-height: auto;
+        margin: 0 auto;
+    }
+}
+
+main .work {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 15rem;
+    padding-top: 11rem;
+    align-content: center;
+}
+
+@media screen and (max-width: 480px) {
+    main .work {
+        display: block;
+        margin: 0;
+        padding-top: 9rem;
+    }
+}
+
+main .work > div {
+    position: relative;
+}
+
+main .work .image {
+    padding: 0;
+    width: 70%;
+    height: auto;
+    max-height: 700px;
+}
+
+@media screen and (max-width: 480px) {
+    main .work .image {
+        margin: 0 auto;
+        width: auto;
+        max-height: none;
+    }
+}
+
+main .work .image .image-content {
+
+}
+
+main .work .image .image-content img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 700px;
+    margin: 0 auto;
+    object-fit: contain;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 480px) {
+    main .work .image .image-content img {
+        width: 100%;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+main .work .caption {
+    margin: 0;
+    padding: 0 0 0 2rem;
+    width: 30%;
+}
+
+@media screen and (max-width: 480px) {
+    main .work .caption {
+        margin: 2rem 0;
+        padding: 0;
+        width: auto;
+    }
+}
+
+main .work .caption > * {
+    margin-bottom: 1rem;
+}
+
+main .work .caption .title {
+    font-size: 2.2rem;
+    border-bottom: #000 1px solid;
+}
+
+@media screen and (max-width: 480px) {
+    main .work .caption .title {
+        font-size: 1.6rem;
+    }
+}
+
+main .work .caption .description {
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 480px) {
+    main .work .caption .description {
+        font-size: 0.9rem;
+    }
+}
+
+main .work .caption .date {
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+@media screen and (max-width: 480px) {
+    main .work .caption .date {
+        font-size: 0.9rem;
+    }
+}
+
+main .work .caption .tag-list {
+    font-size: 1rem;
+    color: #B2291C;
+    letter-spacing: -1em;
+}
+
+@media screen and (max-width: 480px) {
+    main .work .caption .tag-list {
+        font-size: 0.8rem;
+    }
+}
+
+main .work .caption .tag-list .tag-item {
+    display: inline-block;
+    margin-right: 0.6rem;
+    margin-bottom: 0.6rem;
+    border: #B2291C 1px solid;
+    border-radius: 5px;
+    letter-spacing: 0;
+}
+
+main .work .caption .tag-list .tag-item a {
+    display: block;
+    padding: 0.1rem 0.8rem;
+}
+
+main .pagination {
+    margin: 3rem auto;
+    padding: 0;
+    width: 50rem;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #1d50a2;
+}
+
+@media screen and (max-width: 480px) {
+    main .pagination {
+        margin: 0 auto;
+        width: 90%;
+        font-size: 1rem;
+    }
+}
+
+main .pagination > *:not(:last-child) {
+    margin-right: 2rem;
+}
